@@ -13,20 +13,20 @@ CREATE DATABASE outer_space;
 CREATE TABLE stars
 (
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL
+  name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE galaxys
 (
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL
+  name VARCHAR(50) NOT NULL
 );
 
 
 CREATE TABLE planets
 (
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
+  name VARCHAR(50) NOT NULL,
   orbital_period_in_years FLOAT NOT NULL,
   orbiting_star_id INTEGER REFERENCES stars NOT NULL,
   galaxy_id INTEGER REFERENCES galaxys NOT NULL,

@@ -11,28 +11,28 @@ CREATE DATABASE air_traffic;
 CREATE TABLE airlines 
 (
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL
+  name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE available_cities
 (
   id SERIAL PRIMARY KEY,
-  city_name TEXT NOT NULL
+  city_name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE available_countries
 (
   id SERIAL PRIMARY KEY,
-  country_name TEXT NOT NULL
+  country_name VARCHAR(50) NOT NULL
 );
 
 
 CREATE TABLE tickets
 (
   id SERIAL PRIMARY KEY,
-  first_name TEXT NOT NULL,
-  last_name TEXT NOT NULL,
-  seat TEXT NOT NULL,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  seat VARCHAR(10) NOT NULL,
   departure TIMESTAMP NOT NULL,
   arrival TIMESTAMP NOT NULL,
   airline_id INTEGER REFERENCES airlines NOT NULL,

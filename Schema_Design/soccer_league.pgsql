@@ -8,13 +8,13 @@ CREATE DATABASE soccer_league_db;
 CREATE TABLE referees
 (
     id SERIAL PRIMARY KEY,
-    ref_name TEXT NOT NULL
+    ref_name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE leagues
 (
     id SERIAL PRIMARY KEY,
-    league_name TEXT NOT NULL,
+    league_name VARCHAR(50) NOT NULL,
     season_start_date DATE NOT NULL,
     season_end_date DATE NOT NULL
 );
@@ -22,7 +22,7 @@ CREATE TABLE leagues
 CREATE TABLE teams 
 (
     id SERIAL PRIMARY KEY,
-    team_name TEXT NOT NULL,
+    team_name VARCHAR(50) NOT NULL,
     leagues_id INTEGER REFERENCES leagues
 
 );
@@ -30,7 +30,7 @@ CREATE TABLE teams
 CREATE TABLE players
 (
     id SERIAL PRIMARY KEY,
-    player_name TEXT NOT NULL,
+    player_name VARCHAR(50) NOT NULL,
     team_id INTEGER REFERENCES teams
 );
 
@@ -39,7 +39,8 @@ CREATE TABLE matches
     id SERIAL PRIMARY KEY,
     team1_id INTEGER REFERENCES teams,
     team2_id INTEGER REFERENCES teams,
-    ref_id INTEGER REFERENCES referees
+    ref_id INTEGER REFERENCES referees,
+    score TEXT
 );
 
 CREATE TABLE goals

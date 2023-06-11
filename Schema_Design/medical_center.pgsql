@@ -7,28 +7,28 @@ CREATE TABLE medical_center
     id SERIAL PRIMARY KEY,
     name VARCHAR(30) UNIQUE NOT NULL,
     address TEXT NOT NULL,
-    phone INTEGER NOT NULL
+    phone VARCHAR(15) NOT NULL
 );
 
 CREATE TABLE doctors 
 (
     doctor_id SERIAL PRIMARY KEY,
-    first_name TEXT NOT NULL,
-    last_name TEXT NOT NULL
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE patients
 (
     patient_id SERIAL PRIMARY KEY,
-    first_name TEXT NOT NULL,
-    last_name TEXT NOT NULL
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE diagnoses
 (
     id SERIAL PRIMARY KEY,
     patient_id INTEGER REFERENCES patients NOT NULL,
-    disease_name TEXT NOT NULL
+    disease_name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE medical_centers_doctors

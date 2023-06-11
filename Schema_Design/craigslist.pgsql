@@ -5,7 +5,7 @@ CREATE DATABASE craigslist_db;
 CREATE TABLE regions
 (
     id SERIAL PRIMARY KEY,
-    region TEXT NOT NULL
+    region VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE categories
@@ -17,7 +17,7 @@ CREATE TABLE categories
 CREATE TABLE users 
 (
     id SERIAL PRIMARY KEY,
-    username TEXT NOT NULL,
+    username VARCHAR(20) UNIQUE NOT NULL,
     prefered_region INTEGER REFERENCES regions ON DELETE SET NULL
     
 );
@@ -26,10 +26,10 @@ CREATE TABLE posts
 (
     id SERIAL PRIMARY KEY,
     category_id INTEGER REFERENCES categories ON DELETE SET NULL,
-    title TEXT NOT NULL,
-    description TEXT NOT NULL,
+    title VARCHAR(50) NOT NULL,
+    description TEXT,
     user_id INTEGER REFERENCES users ON DELETE SET NULL,
-    location TEXT NOT NULL,
+    location VARCHAR(50) NOT NULL,
     region_id INTEGER REFERENCES regions ON DELETE SET NULL
 );
 

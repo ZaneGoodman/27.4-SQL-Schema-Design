@@ -10,13 +10,13 @@ CREATE DATABASE music;
 CREATE TABLE albums
 (
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL
+  name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE songs
 (
   id SERIAL PRIMARY KEY,
-  title TEXT NOT NULL,
+  title VARCHAR(50) NOT NULL,
   duration_in_seconds INTEGER NOT NULL,
   release_date DATE NOT NULL,
   artists TEXT[] NOT NULL,
